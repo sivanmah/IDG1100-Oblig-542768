@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oblig</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div>
+    <h1>IDG1100 OBLIG</h1>
+    <h3>1. What components are part of the Von Neuman Architecture?</h3>
+    <p>
+      The Von Neuman Architecture consists of a processing unit, a control unit,
+      memory, external mass storage, input and output mechanism.
+    </p>
+    <h3>2. What is user space?</h3>
+    <p>
+      User space is memory that has been allocated to running user applications,
+      as opposed to running the kernel and operating system.
+    </p>
+    <h3>3. What is the shell?</h3>
+    <p>
+      The shell is a computer program which gives an interface that lets you
+      interact with an operating system's services.
+    </p>
+    <h3>4. Where is the shell located?</h3>
+    <p>
+      It is located on the outermost part of the operating system, hence why it
+      is called the shell.
+    </p>
+    <h3>5. What is the main task of the shell?</h3>
+    <p>
+      The main task of the shell is to give the user the ability to input
+      commands that will be given to the underlying operating system.
+    </p>
+    <h3>
+      6. What is the octal representation of a file that can be read and written
+      only by its owner?
+    </h3>
+    <p>
+      The octal value for write is 2, and the octal value for read is 4. You add
+      those together and the octal value for read+write is 6.
+    </p>
+    <h3>
+      7. In UNIX systems, what is the common name of the special user that can
+      access and modify every file?
+    </h3>
+    <p>Superuser</p>
+    <h3>8. Which file permission classes are available in UNIX systems?</h3>
+    <p>User, group and others.</p>
+    <h3>9. As of 2020, which percentage of servers have UNIX-like OS?</h3>
+    <p>71.8% according to W3Techs.</p>
+    <h3>10. The command ssh will:</h3>
+    <p>
+      Provides encrypted connection between two hosts. Can be used for terminal
+      access, file transfers, etc. SSH stands for Secure Shell
+    </p>
+    <h3>11. UNIX Command: access your current working directory</h3>
+    <code>ls</code>
+    <h3>12. UNIX Command: rename files (give an example)</h3>
+    <code>mv example.txt renamedexample.txt</code>
+    <h3>13. UNIX Command: schedule the execution of programs in the future.</h3>
+    <code>at 3pm tomorrow &lt;program&gt;</code>
+    <h3>
+      14. UNIX Command: Forcefully shutdown the command with process ID 123
+    </h3>
+    <code>kill 123</code>
+    <h3>15. UNIX Command: access your root user</h3>
+    <code>su -</code>
+    <h3>16. Crontab scheduled: At minute 30 on Sunday.</h3>
+    <code>30 * * * 0</code>
+    <h3>17. Crontab scheduled: At minute 30 on day-of-month 15.</h3>
+    <code>30 * 15 * *</code>
+    <h3>
+      18. Crontab scheduled: At 05:30 on every day-of-week from Sunday through
+      Monday in June.
+    </h3>
+    <code>30 5 * 6 0-1</code>
+    <h3>19. Script: print your name and date</h3>
+    <code>echo Sivan $(date)</code>
+    <h3>20. Script: add two numeric values, print the result</h3>
+    <code
+      >num1=5 <br />
+      num2=10 <br />
+      sum=(( $num1 + $num2 )) <br />
+      echo $sum</code
+    >
+    <h3>21. Script: inputs username, “USERNAME stored”</h3>
+    <code
+      >read USER_NAME <br />
+      echo "$USER_NAME stored"</code
+    >
+    <h3>
+      22. Script: Store the output of the command “hostname” in a variable.
+      Display “This script is running on _.” where “_” is the output of the
+      “hostname” command.
+    </h3>
+    <code
+      >HOST=$(hostname) <br />
+      echo "This script is running on $host"</code
+    >
+    <h3>
+      23. Script: Store the output of the working directory (from where the
+      script is run) in a variable then print the variable.
+    </h3>
+    <code>directory=$(pwd) <br> echo $directory</code>
+    <h3>
+      24. Create a step by step tutorial on how to create a cronjob that prints
+      “Task scheduled at” + DATE. Cronjob is scheduled every 30 minutes on
+      today’s date (only today).
+    </h3>
+    <p> <ol>
+        <li> 1. First we need to figure out how to schedule it. Open the crontab by
+        typing "crontab -e". I will use the date i wrote this (25th). That makes
+        it */30 * 25 * *.</li> 
+        <li> 2. Now we need to create the command itself. We start by
+        echoing the string "Task scheduled at" and add the date after by $(date)</li>
+        <li> Add everything together and you get the complete cronjob:</li>
+    </ol>
+    </p>
+    <code>*/30 * 25 * * echo "Task scheduled at" $(date)</code>
+    <h3>
+      25. Create a script that takes an input (letter or number) that will
+      display the answer of a question. The script should when started list a
+      menu for the user with the different questions that can be chosen and
+      which corresponding letter the user will have to give as input to display
+      the answer of the desired question. One of the possible inputs the user
+      should be able to make is "q" for quitting the script. The menu should
+      also have a default case where all the items is displayed again, or no
+      changes is made if the user gives an invalid input. Hint: use a switch
+      case to be able to handle the menu. Each option in the menu should lead to
+      an echo of the answer.
+    </h3>
+    <code
+      >#!/bin/bash <br>
+      <br>
+      while : <br>
+      [ "$option"!="q" ]; <br>
+      do <br>
+      <br>
+      echo <br> 
+      echo "1. What is the current date?" <br>
+      echo "2. What is the name of this computer?" <br> 
+      echo "3. What are the contents of this directory?" <br> 
+      echo "4. Where is this directory?"
+      echo "Or press q to quit the script!" <br>
+      <br>
+      read option do <br> 
+      case $option in <br>
+      1) echo "The current date is $(date)";; <br> 
+      2) echo "This computer's name is $(hostname)";; <br>
+      3) echo "These are the contents of this directory: $(ls)";; <br>
+      4) echo "The path to this directory is $(pwd)";; <br> 
+      q) echo "Bye!" exit 0;; <br>
+      *) echo "I could not understand that. Please type a name between 1-5, or press q to quit." <br>
+      esac <br>
+      done</code
+    >
+    </div>
+  </body>
+</html>

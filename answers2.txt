@@ -1,0 +1,84 @@
+6. What is the octal representation of a file that can be read and written only by its owner?
+The octal value for write is 2, and the octal value for read is 4. You add those together and the octal value for read+write is 6.
+7. In UNIX systems, what is the common name of the special user that can access and modify every
+file?
+Superuser
+8. Which file permission classes are available in UNIX systems?
+User, group and others.
+9. As of 2020, which percentage of servers have UNIX-like OS?
+71.8% according to W3Techs.
+10. The command ssh will:
+Provides encrypted connection between two hosts. Can be used for terminal access, file transfers, etc. SSH stands for Secure Shell
+11. UNIX Command: access your current working directory
+ls
+12. UNIX Command: rename files (give an example)
+You use the move command mv. mv example.txt renamedexample.txt
+13. UNIX Command: schedule the execution of programs in the future.
+at 3pm tomorrow
+14. UNIX Command: Forcefully shutdown the command with process ID 123
+kill 123
+15. UNIX Command: access your root user
+su -
+16. Crontab scheduled: At minute 30 on Sunday.
+30 * * * 0
+17. Crontab scheduled: At minute 30 on day-of-month 15.
+30 * 15 * *
+18. Crontab scheduled: At 05:30 on every day-of-week from Sunday through Monday in June.
+30 5 * 6 0-1
+19. Script: print your name and date
+echo Sivan $(date)
+20. Script: add two numeric values, print the result
+#!/bin/bash
+num1=5
+num2=10
+sum=(( $num1 + $num2 ))
+echo $sum
+21. Script: inputs username, “USERNAME stored”
+read USER_NAME
+echo "$USER_NANME stored"
+22. Script: Store the output of the command “hostname” in a variable. Display “This script is
+running on _.” where “_” is the output of the “hostname” command.
+HOST=$(hostname)
+echo "This script is running on $host"
+23. Script: Store the output of the working directory (from where the script is run) in a variable
+then print the variable.
+directory=$(pwd)
+echo $directory
+24. Create a step by step tutorial on how to create a cronjob that prints “Task scheduled at” +
+DATE. Cronjob is scheduled every 30 minutes on today’s date (only today).
+1. First we need to figure out how to schedule it. Open the crontab by typing "crontab -e". I will use the date i wrote this (25th). That makes it */30 * 25 * *.
+2. Now we need to create the command itself. We start by echoing the string "Task scheduled at" and add the date after by $(date)
+3. Add everything together and you get the complete cronjob: */30 * 25 * * echo "Task scheduled at" $(date)
+25. Create a script that takes an input (letter or number) that will display the answer of a question.
+The script should when started list a menu for the user with the different questions that can be
+chosen and which corresponding letter the user will have to give as input to display the answer of
+the desired question. One of the possible inputs the user should be able to make is "q" for quitting
+the script. The menu should also have a default case where all the items is displayed again, or no
+changes is made if the user gives an invalid input. Hint: use a switch case to be able to handle the
+menu. Each option in the menu should lead to an echo of the answer.
+
+#!/bin/bash
+
+while :
+[ "$option"!="q" ];
+do
+
+echo
+echo "1. What is the current date?"
+echo "2. What is the name of  this computer?"
+echo "3. What are the contents of this directory?"
+echo "4. Where is this directory?"
+echo "Or press q to quit the script!"
+
+read option do
+case $option in
+        1) echo "The current date is $(date)";;
+        2) echo "This computer's name is $(hostname)";;
+        3) echo "These are the contents of this directory: $(ls)";;
+        4) echo "The path to this directory is $(pwd)";;
+        q) echo "Bye!"
+                exit 0;;
+        *) echo "I could not understand that. Please type a name between 1-5, or press q to quit."
+
+esac
+done

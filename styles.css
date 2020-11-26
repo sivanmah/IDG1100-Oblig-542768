@@ -1,0 +1,21 @@
+body {
+  margin: 0 20%;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  background-color: gray;
+}
+
+div {
+  background-color: white;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+code {
+  display: inline-block;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1%;
+}
